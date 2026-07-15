@@ -100,3 +100,4 @@ You can preview the robot directly in VS Code using the **URDF Visualizer** exte
 1. Open `urdf/robot.urdf.xacro` in the editor.
 2. On the right-hand side of the file's tab bar, click the **Preview URDF/Xacro** icon.
 3. The extension will process the xacro file and render the robot — chassis steps, camera, lidar, and wheels — in an interactive 3D view as shown in the above demo.
+4. The stl files can also be viewed inside VS code using the following extension **Extension:** [stl Visualizer] (https://marketplace.visualstudio.com/items?itemName=mtsmfm.vscode-stl-viewer)
