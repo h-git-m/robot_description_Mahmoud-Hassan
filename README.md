@@ -4,7 +4,7 @@ https://github.com/user-attachments/assets/97bc0ee6-c840-4d55-a362-c81c9f5a8efb
 
 ## Project Overview
 
-This package contains a `xacro`-based URDF description of a two-wheeled robot whose chassis is built as a **3-step pyramid**, with each step colored to match the Egyptian flag (red, white, black — widest to narrowest, bottom to top). The **camera** is mounted on the middle (white) step and the **LIDAR** sits on top of the highest (black) step; both are recolored **gold** as an accent that echoes the golden eagle on the flag. The base is propelled by **two continuous-joint wheels** in a differential-drive layout.
+This package contains a `xacro`-based URDF description of a two-wheeled robot whose chassis is built as a **3-step pyramid**, with each step colored to match the Egyptian flag (black, white, red — widest to narrowest, bottom to top). The **camera** is mounted on the middle (white) step and the **LIDAR** sits on top of the highest (red) step; both are recolored **gold** as an accent that echoes the golden eagle on the flag. The base is propelled by **two continuous-joint wheels** in a differential-drive layout.
 
 The file demonstrates several core `xacro`/URDF concepts:
 
@@ -21,11 +21,11 @@ The file demonstrates several core `xacro`/URDF concepts:
 
 ```
 base_footprint (virtual root, ground-level reference frame)
- └── base_link                    [Step 1 — RED, largest]
+ └── base_link                    [Step 1 — BLACK, largest]
       ├── middle_step_link        [Step 2 — WHITE, mounted on top of Step 1]
       │    └── camera_link        [GOLD — mounted on front edge of Step 2]
       │         └── camera_optical_link
-      │    └── top_step_link      [Step 3 — BLACK, mounted on top of Step 2]
+      │    └── top_step_link      [Step 3 — RED, mounted on top of Step 2]
       │         └── lidar_link    [GOLD — mounted on top of Step 3]
       ├── left_wheel_link         [continuous joint, Y-axis]
       └── right_wheel_link        [continuous joint, Y-axis]
@@ -34,9 +34,9 @@ base_footprint (virtual root, ground-level reference frame)
 | Link | Role | Color | Joint type to parent |
 |---|---|---|---|
 | `base_footprint` | Virtual ground reference | — | — |
-| `base_link` | Step 1 / chassis base | Red | Fixed (to `base_footprint`) |
+| `base_link` | Step 1 / chassis base | Black | Fixed (to `base_footprint`) |
 | `middle_step_link` | Step 2 | White | Fixed (to `base_link`) |
-| `top_step_link` | Step 3 | Black | Fixed (to `middle_step_link`) |
+| `top_step_link` | Step 3 | Red | Fixed (to `middle_step_link`) |
 | `camera_link` | ZED camera | Gold | Fixed (to `middle_step_link`) |
 | `camera_optical_link` | Optical frame | — | Fixed (to `camera_link`) |
 | `lidar_link` | LIDAR sensor | Gold | Fixed (to `top_step_link`) |
@@ -99,4 +99,4 @@ You can preview the robot directly in VS Code using the **URDF Visualizer** exte
 
 1. Open `urdf/robot.urdf.xacro` in the editor.
 2. On the right-hand side of the file's tab bar, click the **Preview URDF/Xacro** icon.
-3. The extension will process the xacro file and render the robot — chassis steps, camera, lidar, and wheels — in an interactive 3D view.
+3. The extension will process the xacro file and render the robot — chassis steps, camera, lidar, and wheels — in an interactive 3D view as shown in the above demo.
